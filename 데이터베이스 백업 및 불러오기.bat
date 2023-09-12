@@ -9,6 +9,15 @@ set ORIGIN_PATH=%~dp0
 C:
 cd %MYSQL_PATH%
 
+:: DB 폴더 경로
+set db_dir=%ORIGIN_PATH%DB
+
+:: DB 폴더가 없으면 생성
+if not exist "%db_dir%" (
+    mkdir "%db_dir%"
+    echo DB 폴더가 생성되었습니다.
+)
+
 :set_mysql_credentials
 echo.
 echo 현재 MySQL bin 폴더 경로: %MYSQL_PATH%
